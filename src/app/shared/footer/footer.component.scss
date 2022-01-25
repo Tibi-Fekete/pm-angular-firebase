@@ -1,0 +1,10 @@
+@import "src/assets/scss/variables";
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+
+  a {
+    color: $gray-900;
+  }
+}

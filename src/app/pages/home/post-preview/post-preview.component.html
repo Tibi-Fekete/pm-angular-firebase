@@ -1,0 +1,10 @@
+<a href="javascript:void(0)" *ngIf="post" (click)="onClick()">
+  <h2 class="post-title">{{ post.title }}</h2>
+  <h3 *ngIf="post.subtitle" class="post-subtitle">{{ post.subtitle }}</h3>
+</a>
+<p *ngIf="post" class="post-meta">
+  Posted by <a href="javascript:void(0)">{{ post.author }}</a> on {{ post.date | date : 'longDate' }}
+</p>
+
+<!-- Divider-->
+<hr class="my-4">

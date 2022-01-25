@@ -1,0 +1,41 @@
+<app-header backgroundUrl="assets/img/contact-bg.jpg" subtitleText="Share your wisdom with the world!" titleText="Create Post"></app-header>
+
+<main class="mb-4">
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <p>Want to be a creator? Fill out the form below to send a new post!</p>
+        <div class="my-5">
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-floating">
+              <input class="form-control" type="text" id="title" name="title" #title="ngModel"
+                     placeholder="Write a post title..." [(ngModel)]="post.title" required>
+              <label for="title">Title</label>
+              <div *ngIf="title.invalid && title.touched" class="small text-danger">A title is required.</div>
+            </div>
+            <div class="form-floating">
+              <input class="form-control" id="subtitle" name="subtitle" type="text" placeholder="Write a short lead..."
+                     [(ngModel)]="post.subtitle" #subtitle="ngModel" required>
+              <label for="subtitle">Sub Title</label>
+              <div *ngIf="subtitle.invalid && subtitle.touched" class="small text-danger">A sub title is required.</div>
+            </div>
+            <div class="form-floating">
+              <input class="form-control" id="author" name="author" type="text" placeholder="Write a short lead..."
+                     [(ngModel)]="post.author" #author="ngModel" required>
+              <label for="subtitle">Author</label>
+              <div *ngIf="author.invalid && author.touched" class="small text-danger">An author is required.</div>
+            </div>
+            <div class="form-floating">
+              <textarea class="form-control" id="body" name="body" placeholder="Write the post here..."
+                        style="height: 12rem" [(ngModel)]="post.body" #body="ngModel" required></textarea>
+              <label for="body">Body</label>
+              <div *ngIf="body.invalid && body.touched" class="small text-danger">A post body is required.</div>
+            </div>
+            <!-- Submit Button-->
+            <button class="btn btn-primary text-uppercase mt-2" id="submitButton" type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

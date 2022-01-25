@@ -1,0 +1,61 @@
+<app-header backgroundUrl="assets/img/contact-bg.jpg" subtitleText="Sign up and have fun!" titleText="Sign in / Sign up"></app-header>
+
+<main class="mb-4">
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <p>Want to have more features? Fill out the form below and sign up!</p>
+        <div class="my-5">
+          <form [formGroup]="contactFrom" (ngSubmit)="submitContactForm()" novalidate>
+            <div *ngIf="email" class="form-floating">
+              <input class="form-control" id="email" type="email" formControlName="email" placeholder="Enter your email...">
+              <label for="email">Email address</label>
+              <div *ngIf="email.invalid && email.touched" class="small text-danger">
+                <span *ngIf="email.errors?.required">An email is required.</span>
+                <span *ngIf="email.errors?.email">Email is not valid.</span>
+              </div>
+            </div>
+            <div *ngIf="password" class="form-floating">
+              <input class="form-control" id="password" type="password" formControlName="password" placeholder="Enter your password...">
+              <label for="password">Password</label>
+              <div *ngIf="password.invalid && password.touched" class="small text-danger">A password is required.</div>
+            </div>
+            <!-- Submit Button-->
+            <button class="btn btn-primary text-uppercase mt-2" id="submitContactButton" type="submit" [disabled]="!contactFrom.valid">Registrate</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <p>If you have an account already... sign in!</p>
+        <div class="my-5">
+          <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
+            <div *ngIf="loginEmail" class="form-floating">
+              <input class="form-control" id="loginEmail" type="email" formControlName="loginEmail" placeholder="Enter your email...">
+              <label for="loginEmail">Email address</label>
+              <div *ngIf="loginEmail.invalid && loginEmail.touched" class="small text-danger">
+                <span *ngIf="loginEmail.errors?.required">An email is required.</span>
+                <span *ngIf="loginEmail.errors?.email">Email is not valid.</span>
+              </div>
+            </div>
+            <div *ngIf="loginPassword" class="form-floating">
+              <input class="form-control" id="loginPassword" type="password" formControlName="loginPassword" placeholder="Enter your password...">
+              <label for="loginPassword">Password</label>
+              <div *ngIf="loginPassword.invalid && loginPassword.touched" class="small text-danger">A password is required.</div>
+            </div>
+            <!-- Submit Button-->
+            <button class="btn btn-primary text-uppercase mt-2" id="submitButton" type="submit" [disabled]="!loginForm.valid">Login</button>
+          </form>
+            <p class="my-3">or login with</p>
+            <button class="btn btn-danger text-uppercase mt-2" (click)="loginWithGoogle()" id="submitButton" type="button">Google</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

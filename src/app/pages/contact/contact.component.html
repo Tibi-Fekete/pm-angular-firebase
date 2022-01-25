@@ -1,0 +1,40 @@
+<app-header backgroundUrl="assets/img/contact-bg.jpg" subtitleText="Have questions? We have answers." titleText="Contact Us"></app-header>
+
+<main class="mb-4">
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
+        <div class="my-5">
+          <form [formGroup]="contactFrom" (ngSubmit)="submitContactForm()" novalidate>
+            <div *ngIf="name" class="form-floating">
+              <input class="form-control" type="text" id="name" formControlName="name" placeholder="Enter your name...">
+              <label for="name">Name</label>
+              <div *ngIf="name.invalid && name.touched" class="small text-danger">A name is required.</div>
+            </div>
+            <div *ngIf="email" class="form-floating">
+              <input class="form-control" id="email" type="email" formControlName="email" placeholder="Enter your email...">
+              <label for="email">Email address</label>
+              <div *ngIf="email.invalid && email.touched" class="small text-danger">
+                <span *ngIf="email.errors?.required">An email is required.</span>
+                <span *ngIf="email.errors?.email">Email is not valid.</span>
+              </div>
+            </div>
+            <div *ngIf="phone" class="form-floating">
+              <input class="form-control" id="phone" type="tel" formControlName="phone" placeholder="Enter your phone number...">
+              <label for="phone">Phone Number</label>
+              <div *ngIf="phone.invalid && phone.touched" class="small text-danger">A phone number is required.</div>
+            </div>
+            <div *ngIf="message" class="form-floating">
+              <textarea class="form-control" id="message" placeholder="Enter your message here..." formControlName="message" style="height: 12rem"></textarea>
+              <label for="message">Message</label>
+              <div *ngIf="message.invalid && message.touched" class="small text-danger">A message is required.</div>
+            </div>
+            <!-- Submit Button-->
+            <button class="btn btn-primary text-uppercase mt-2" id="submitButton" type="submit" [disabled]="!contactFrom.valid">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

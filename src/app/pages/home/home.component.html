@@ -1,0 +1,13 @@
+<app-header backgroundUrl="assets/img/home-bg.jpg" subtitleText="A blog by PROGmasters"
+            titleText="BLOGmasters"></app-header>
+
+<div class="container px-4 px-lg-5">
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-7">
+      <app-post-preview *ngFor="let post of posts | async" [post]="post" (onPostClick)="navigateToPost($event)"></app-post-preview>
+      <!-- Pager-->
+      <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a>
+      </div>
+    </div>
+  </div>
+</div>

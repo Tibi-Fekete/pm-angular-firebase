@@ -1,0 +1,39 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+a {
+  color: $gray-900;
+  text-decoration: none;
+
+  &:focus, &:hover {
+    color: $primary;
+  }
+
+  > .post-title {
+    font-size: 1.875rem;
+    margin-top: 1.875rem;
+    margin-bottom: 0.625rem;
+    font-weight: 800;
+  }
+
+  > .post-subtitle {
+    font-weight: 300;
+    margin-bottom: 0.625rem;
+  }
+}
+
+.post-meta {
+  font-size: 1.125rem;
+  font-style: italic;
+  margin-top: 0;
+  color: $gray-600;
+}
+
+@include media-breakpoint-up(lg) {
+  a {
+    > .post-title {
+      font-size: 2.25rem;
+    }
+  }
+}

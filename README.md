@@ -1,1 +1,1 @@
-# pm-angular-firebase
+# angular-firebase-demo
